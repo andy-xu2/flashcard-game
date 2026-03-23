@@ -24,6 +24,7 @@ function displayCard() {
 // The rest of the code you will write is apart of event listeners
 const nextButton = document.getElementById('next-btn');
 const prevButton = document.getElementById('prev-btn');
+const flipButton = document.getElementById('flashcard');
 
 nextButton.addEventListener('click', () => {
     currentIndex++;
@@ -43,6 +44,11 @@ prevButton.addEventListener('click', () => {
         currentIndex = flashcards.length - 1;
     }
     showingTerm = true;
+    displayCard();
+});
+
+flipButton.addEventListener('click', () => {
+    showingTerm = !showingTerm;
     displayCard();
 });
 
