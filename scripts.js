@@ -25,6 +25,9 @@ function displayCard() {
 const nextButton = document.getElementById('next-btn');
 const prevButton = document.getElementById('prev-btn');
 const flipButton = document.getElementById('flashcard');
+const addCardButton = document.getElementById('add-card-btn');
+const newTerm = document.getElementById('new-term');
+const newDefinition = document.getElementById('new-definition');
 
 nextButton.addEventListener('click', () => {
     currentIndex++;
@@ -50,6 +53,13 @@ prevButton.addEventListener('click', () => {
 flipButton.addEventListener('click', () => {
     showingTerm = !showingTerm;
     displayCard();
+});
+
+addCardButton.addEventListener('click', () => {
+    const newCard = { term: newTerm.value, definition: newDefinition.value };
+    flashcards.push(newCard);
+    newTerm.value = '';
+    newDefinition.value = '';
 });
 
 // This line will display the card when the page is refreshed
